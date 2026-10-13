@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKA CAMP Lesson 3 - Almazaya Islamic School</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        almazaya: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- KaTeX Math Rendering Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            user-select: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .nav-btn.active {
+            background-color: #065f46;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(6, 95, 70, 0.25);
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col text-slate-800 bg-slate-100 overflow-x-hidden">
+
+    <!-- Top Header Navigation -->
+    <header class="bg-gradient-to-r from-almazaya-900 via-almazaya-800 to-teal-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('home')">
+                <div class="w-10 h-10 rounded-xl bg-gold-500 flex items-center justify-center font-extrabold text-almazaya-900 shadow-md text-xl">
+                    <i class="fa-solid fa-shapes"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-wide">ALMAZAYA ISLAMIC SCHOOL</h1>
+                    <p class="text-xs text-emerald-200 font-medium">TKA CAMP 2026 • Persiapan Ujian Kelas 9</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-2 bg-almazaya-900/50 p-1.5 rounded-2xl border border-emerald-700/50">
+                <button id="nav-home" onclick="switchView('home')" class="nav-btn active px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center space-x-2">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Beranda</span>
+                </button>
+                <button id="nav-modul" onclick="switchView('modul')" class="nav-btn px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 text-emerald-100 hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-book-open text-xs"></i>
+                    <span>Modul Materi</span>
+                </button>
+                <button id="nav-lesson3" onclick="switchView('lesson3')" class="nav-btn px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 text-emerald-100 hover:text-white flex items-center space-x-2">
+                    <i class="fa-solid fa-file-pen text-xs"></i>
+                    <span>Lesson III (Soal/Ujian)</span>
+                </button>
+            </nav>
+
+            <!-- Student Badge -->
+            <div class="flex items-center space-x-3 bg-almazaya-900/60 border border-emerald-600/40 px-3 py-1.5 rounded-full">
+                <div class="w-7 h-7 rounded-full bg-gold-400 text-almazaya-900 font-black flex items-center justify-center text-xs shadow-inner">
+                    9
+                </div>
+                <div class="text-left hidden sm:block">
+                    <div class="text-xs font-bold text-emerald-100">Siswa Kelas 9</div>
+                    <div class="text-[10px] text-emerald-300">TKA CAMP Lesson 3</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- VIEW 1: HOME SCREEN (LAPTOP FRIENDLY LANDSCAPE) -->
+        <section id="view-home" class="space-y-6">
+            
+            <!-- Hero Banner -->
+            <div class="relative bg-gradient-to-r from-almazaya-800 via-teal-800 to-emerald-900 rounded-3xl p-6 md:p-8 text-white shadow-xl overflow-hidden border border-emerald-600/30">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-white text-[220px] pointer-events-none">
+                    <i class="fa-solid fa-draw-polygon"></i>
+                </div>
+                
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <div class="space-y-3 max-w-3xl text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 bg-gold-500/20 text-gold-400 border border-gold-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-star text-gold-400"></i>
+                            <span>Pelatihan Intensif TKA 2026</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+                            Selamat Datang di <span class="text-gold-400">TKA CAMP</span> Lesson 3
+                        </h2>
+                        <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+                            Kuasai materi <span class="font-semibold text-white">Geometri, Transformasi Geometri, Kesebangunan & Kekongruenan, serta Pengukuran (Bangun Datar & Bangun Ruang)</span> untuk persiapan Ujian Tes Kemampuan Akademik tingkat SMP.
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold">
+                            <span class="bg-emerald-900/80 border border-emerald-600 px-3 py-1.5 rounded-lg flex items-center space-x-1.5">
+                                <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                                <span>20 Soal TKA Standar UTBK/SMP</span>
+                            </span>
+                            <span class="bg-emerald-900/80 border border-emerald-600 px-3 py-1.5 rounded-lg flex items-center space-x-1.5">
+                                <i class="fa-solid fa-lightbulb text-gold-400"></i>
+                                <span>Pembahasan Lengkap & Diagram Gambar</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TWO LARGE MENU CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                
+                <!-- CARD 1: MODUL & MATERI BELAJAR -->
+                <div onclick="switchView('modul')" class="group relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md hover:shadow-2xl hover:border-almazaya-600 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-36 h-36 bg-emerald-50 rounded-full group-hover:scale-125 transition-transform duration-500 ease-out z-0"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-almazaya-100 text-almazaya-800 flex items-center justify-center text-2xl font-bold group-hover:bg-almazaya-800 group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Buku Saku Digital</span>
+                            <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-almazaya-800 transition-colors">
+                                Modul / Materi Belajar
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Rangkuman rumus penting Transformasi Geometri (Translasi, Rotasi, Refleksi, Dilatasi), Syarat Kesebangunan & Kekongruenan, Pythagoras, serta Luas & Volume Bangun Ruang.
+                        </p>
+
+                        <!-- Topic List Tags -->
+                        <div class="pt-2 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Transformasi</span>
+                            <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Kesebangunan</span>
+                            <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Pythagoras</span>
+                            <span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Bangun Ruang</span>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 pt-6 mt-4 border-t border-slate-100 flex items-center justify-between text-almazaya-800 font-bold text-sm">
+                        <span>Buka Modul Belajar</span>
+                        <div class="w-8 h-8 rounded-full bg-emerald-50 group-hover:bg-almazaya-800 group-hover:text-white flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: LESSON III (SOAL & SIMULASI UJIAN) -->
+                <div onclick="switchView('lesson3')" class="group relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md hover:shadow-2xl hover:border-gold-500 transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-36 h-36 bg-amber-50 rounded-full group-hover:scale-125 transition-transform duration-500 ease-out z-0"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-2xl font-bold group-hover:bg-gold-500 group-hover:text-slate-900 transition-colors duration-300 shadow-sm">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Simulasi & Latihan TKA</span>
+                            <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-gold-600 transition-colors">
+                                Lesson III: Soal & Ujian
+                            </h3>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Latihan 20 Soal TKA Geometri dengan 2 mode pilihan: <span class="font-bold text-slate-800">Mode Belajar</span> (dilengkapi pembahasan instan & diagram) atau <span class="font-bold text-slate-800">Mode Ujian</span> (dengan timer & nilai otomatis).
+                        </p>
+
+                        <!-- Features list -->
+                        <div class="pt-2 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-200/60 rounded-lg text-xs font-semibold">Pilihan Ganda</span>
+                            <span class="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-200/60 rounded-lg text-xs font-semibold">PG Kompleks</span>
+                            <span class="px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-200/60 rounded-lg text-xs font-semibold">Benar / Salah</span>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 pt-6 mt-4 border-t border-slate-100 flex items-center justify-between text-gold-600 font-bold text-sm">
+                        <span>Mulai Latihan / Ujian</span>
+                        <div class="w-8 h-8 rounded-full bg-amber-50 group-hover:bg-gold-500 group-hover:text-slate-900 flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- VIEW 2: MODUL MATERI BELAJAR -->
+        <section id="view-modul" class="hidden space-y-6">
+            
+            <!-- Header bar for Modul -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Modul Referensi Resmi</span>
+                    <h2 class="text-2xl font-black text-slate-900">Modul TKA CAMP - Lesson 3</h2>
+                    <p class="text-xs text-slate-500">Geometri, Transformasi Geometri, Kesebangunan, Kekongruenan, & Pengukuran</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="relative">
+                        <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                        <input type="text" id="module-search" oninput="filterModuleTopic()" placeholder="Cari rumus / kata kunci..." class="pl-8 pr-3 py-1.5 bg-slate-100 border border-slate-200 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-almazaya-600 w-48 sm:w-64">
+                    </div>
+                    <button onclick="switchView('home')" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-xl text-xs font-bold text-slate-700">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modul Content Layout with Sidebar Navigation -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                
+                <!-- Topic Navigation Tabs -->
+                <div class="lg:col-span-1 space-y-2 sticky top-20">
+                    <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm space-y-1">
+                        <div class="text-xs font-extrabold uppercase tracking-wider text-slate-400 px-3 py-2">Daftar Isi Bab</div>
+                        
+                        <button onclick="scrollToModuleSection('m-transformasi')" class="modul-tab-btn active w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">
+                            <span class="flex items-center space-x-2">
+                                <i class="fa-solid fa-arrows-turn-to-dots text-emerald-600"></i>
+                                <span>1. Transformasi Geometri</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+
+                        <button onclick="scrollToModuleSection('m-kesebangunan')" class="modul-tab-btn w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">
+                            <span class="flex items-center space-x-2">
+                                <i class="fa-solid fa-clone text-emerald-600"></i>
+                                <span>2. Kesebangunan & Kongruen</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+
+                        <button onclick="scrollToModuleSection('m-pythagoras')" class="modul-tab-btn w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">
+                            <span class="flex items-center space-x-2">
+                                <i class="fa-solid fa-ruler-combined text-emerald-600"></i>
+                                <span>3. Pythagoras & Bangun Datar</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+
+                        <button onclick="scrollToModuleSection('m-bangunruang')" class="modul-tab-btn w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-between text-slate-700 hover:bg-emerald-50 hover:text-emerald-800">
+                            <span class="flex items-center space-x-2">
+                                <i class="fa-solid fa-cube text-emerald-600"></i>
+                                <span>4. Pengukuran Bangun Ruang</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+
+                    <!-- Quick Formula Card -->
+                    <div class="bg-gradient-to-br from-almazaya-800 to-teal-900 rounded-2xl p-4 text-white space-y-3 shadow-md">
+                        <div class="flex items-center space-x-2 text-gold-400 font-bold text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Tips Cepat TKA</span>
+                        </div>
+                        <p class="text-xs text-emerald-100 leading-relaxed">
+                            Ingat konversi penting: $1 \text{ dm}^3 = 1 \text{ Liter} = 1.000 \text{ cm}^3$. Perhatikan posisi sudut bersesuaian pada gambar kongruen!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Module Main Text Body -->
+                <div class="lg:col-span-3 space-y-8">
+                    
+                    <!-- BAB 1: TRANSFORMASI GEOMETRI -->
+                    <div id="m-transformasi" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-100 pb-4 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-10 h-10 rounded-xl bg-emerald-100 text-almazaya-800 font-extrabold flex items-center justify-center text-lg">1</span>
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-900">Transformasi Geometri</h3>
+                                    <p class="text-xs text-slate-500">Translasi, Rotasi, Refleksi, dan Dilatasi pada Bidang Kartesius</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                <div class="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl space-y-1">
+                                    <div class="font-bold text-emerald-900 text-sm">1. Translasi (Pergeseran) $T(a,b)$</div>
+                                    <div class="font-mono text-emerald-800">$P(x,y) \xrightarrow{T(a,b)} P'(x+a, y+b)$</div>
+                                </div>
+                                <div class="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl space-y-1">
+                                    <div class="font-bold text-emerald-900 text-sm">2. Rotasi Pusat $O(0,0)$</div>
+                                    <div class="font-mono text-emerald-800">
+                                        • $90^\circ$ CCW (Berlawanan): $(x,y) \rightarrow (-y, x)$<br>
+                                        • $90^\circ$ CW (Searah): $(x,y) \rightarrow (y, -x)$<br>
+                                        • $180^\circ$: $(x,y) \rightarrow (-x, -y)$
+                                    </div>
+                                </div>
+                                <div class="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl space-y-1">
+                                    <div class="font-bold text-emerald-900 text-sm">3. Dilatasi Pusat $O(0,0)$ Skala $k$</div>
+                                    <div class="font-mono text-emerald-800">$P(x,y) \xrightarrow{[O,k]} P'(kx, ky)$</div>
+                                </div>
+                                <div class="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl space-y-1">
+                                    <div class="font-bold text-emerald-900 text-sm">4. Dilatasi Pusat $P(a,b)$ Skala $k$</div>
+                                    <div class="font-mono text-emerald-800">
+                                        $x' = a + k(x - a)$<br>
+                                        $y' = b + k(y - b)$
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BAB 2: KEKONGRUENAN DAN KESEBANGUNAN -->
+                    <div id="m-kesebangunan" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-100 pb-4 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-10 h-10 rounded-xl bg-teal-100 text-teal-800 font-extrabold flex items-center justify-center text-lg">2</span>
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-900">Kekongruenan & Kesebangunan</h3>
+                                    <p class="text-xs text-slate-500">Syarat Dua Bangun Sama Bentuk & Ukuran atau Sebanding</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+                                    <div class="font-bold text-slate-900 text-sm"><i class="fa-solid fa-equals text-emerald-600 mr-1.5"></i>Kekongruenan ($\cong$)</div>
+                                    <p>Dua bangun dikatakan kongruen jika memiliki <strong>bentuk dan ukuran yang persis sama</strong>.</p>
+                                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                        <li>Sisi-sisi yang bersesuaian sama panjang.</li>
+                                        <li>Sudut-sudut yang bersesuaian sama besar.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+                                    <div class="font-bold text-slate-900 text-sm"><i class="fa-solid fa-up-right-and-down-left-from-center text-blue-600 mr-1.5"></i>Kesebangunan ($\sim$)</div>
+                                    <p>Dua bangun dikatakan sebangun jika bentuknya sama tetapi ukurannya sebanding.</p>
+                                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                        <li>Sisi-sisi yang bersesuaian memiliki perbandingan senilai.</li>
+                                        <li>Sudut-sudut yang bersesuaian sama besar.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BAB 3: PYTHAGORAS DAN BANGUN DATAR -->
+                    <div id="m-pythagoras" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-100 pb-4 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 font-extrabold flex items-center justify-center text-lg">3</span>
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-900">Teorema Pythagoras & Pengukuran Bangun Datar</h3>
+                                    <p class="text-xs text-slate-500">Tripel Pythagoras, Keliling, Luas, dan Aplikasi Biaya</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+                            <div class="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl space-y-2">
+                                <h4 class="font-bold text-amber-900 text-xs uppercase tracking-wider">Teorema Pythagoras & Tripel Utama</h4>
+                                <p class="text-xs text-amber-900">
+                                    Pada segitiga siku-siku dengan sisi alas $a$, tinggi $b$, dan miring $c$: <span class="font-mono font-bold">$c^2 = a^2 + b^2$</span>.
+                                    <br>Tripel Pythagoras Populer: <strong>(3, 4, 5)</strong>, <strong>(5, 12, 13)</strong>, <strong>(7, 24, 25)</strong>, <strong>(8, 15, 17)</strong>.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <div class="font-bold text-slate-900">Persegi Panjang & Persegi</div>
+                                    <p class="text-slate-600 mt-1">Luas = $p \times l$ atau $s^2$. Keliling = $2(p+l)$ atau $4s$.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <div class="font-bold text-slate-900">Lingkaran ($\pi = \frac{22}{7} \text{ atau } 3,14$)</div>
+                                    <p class="text-slate-600 mt-1">Luas = $\pi r^2$. Keliling = $2 \pi r = \pi d$.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BAB 4: PENGUKURAN BANGUN RUANG -->
+                    <div id="m-bangunruang" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-100 pb-4 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-800 font-extrabold flex items-center justify-center text-lg">4</span>
+                                <div>
+                                    <h3 class="text-xl font-black text-slate-900">Pengukuran Bangun Ruang</h3>
+                                    <p class="text-xs text-slate-500">Prisma, Limas, Balok, Tabung, Luas Permukaan, Volume, & Kapasitas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-xs text-slate-700">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-100 space-y-1">
+                                    <span class="font-bold text-indigo-900 text-sm">Balok</span>
+                                    <p>$V = p \times l \times t$</p>
+                                    <p>$L_p = 2(pl + pt + lt)$</p>
+                                </div>
+                                <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-100 space-y-1">
+                                    <span class="font-bold text-indigo-900 text-sm">Tabung</span>
+                                    <p>$V = \pi r^2 t$</p>
+                                    <p>$L_{\text{alas}} = \pi r^2$</p>
+                                </div>
+                                <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-100 space-y-1">
+                                    <span class="font-bold text-indigo-900 text-sm">Prisma Segitiga</span>
+                                    <p>$V = L_{\text{alas}} \times t_{\text{prisma}}$</p>
+                                    <p>$L_p = 2 \cdot L_{\text{alas}} + (K_{\text{alas}} \times t_{\text{prisma}})$</p>
+                                </div>
+                                <div class="bg-indigo-50/60 p-3.5 rounded-xl border border-indigo-100 space-y-1">
+                                    <span class="font-bold text-indigo-900 text-sm">Limas Segi Empat</span>
+                                    <p>$V = \frac{1}{3} \times L_{\text{alas}} \times t_{\text{limas}}$</p>
+                                    <p>$L_p = L_{\text{alas}} + \sum L_{\text{sisi tegak}}$</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- VIEW 3: LESSON III (SOAL & MODE UJIAN / MODE BELAJAR) -->
+        <section id="view-lesson3" class="hidden space-y-6">
+            
+            <!-- Top Controls Bar -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3 w-full md:w-auto">
+                    <button onclick="switchView('home')" class="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-slate-600">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span id="quiz-mode-badge" class="px-2.5 py-0.5 bg-emerald-100 text-almazaya-800 text-[11px] font-black uppercase rounded-full">
+                                MODE BELAJAR
+                            </span>
+                            <span class="text-xs text-slate-400">• TKA Lesson 3</span>
+                        </div>
+                        <h2 class="text-lg font-black text-slate-900">Pelatihan Ujian TKA Geometri (20 Nomor)</h2>
+                    </div>
+                </div>
+
+                <!-- Mode Switcher & Timer Container -->
+                <div class="flex items-center justify-between md:justify-end space-x-3 w-full md:w-auto">
+                    <!-- Timer Display (Visible in Ujian mode) -->
+                    <div id="timer-box" class="hidden flex items-center space-x-2 bg-slate-900 text-gold-400 px-3 py-1.5 rounded-xl font-mono text-sm font-bold shadow-inner">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="timer-display">45:00</span>
+                    </div>
+
+                    <!-- Change Mode Modal Trigger -->
+                    <button onclick="openModeModal()" class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>Ganti Mode</span>
+                    </button>
+
+                    <!-- Submit Exam Button -->
+                    <button id="btn-submit-exam" onclick="confirmSubmitExam()" class="hidden px-4 py-2 bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold rounded-xl text-xs shadow-md transition-all">
+                        <i class="fa-solid fa-paper-plane mr-1"></i> Selesaikan Ujian
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Layout: Left Question Card, Right Navigator -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                
+                <!-- MAIN QUESTION BOX (3 Cols) -->
+                <div class="lg:col-span-3 space-y-6">
+                    
+                    <div id="question-card" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md space-y-6 min-h-[420px] flex flex-col justify-between">
+                        
+                        <!-- Question Header -->
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-9 h-9 rounded-xl bg-almazaya-800 text-white font-extrabold flex items-center justify-center text-sm shadow-sm" id="q-number-badge">
+                                        1
+                                    </span>
+                                    <span class="text-xs font-bold text-slate-500" id="q-type-badge">Pilihan Ganda</span>
+                                </div>
+                                <span class="text-xs font-semibold text-slate-400" id="q-topic-tag">Transformasi Geometri</span>
+                            </div>
+
+                            <!-- Question Body Text & Diagram -->
+                            <div class="space-y-4">
+                                <div class="text-sm sm:text-base text-slate-800 font-medium leading-relaxed" id="q-text">
+                                    <!-- Dynamic Question Content loaded via JS -->
+                                </div>
+                                
+                                <!-- Diagram Container for questions with graphics -->
+                                <div id="q-diagram-container" class="hidden flex items-center justify-center p-4 bg-slate-50/80 rounded-2xl border border-slate-200 overflow-x-auto">
+                                    <!-- Dynamic SVG diagram loaded via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Options / Answer Input Container -->
+                        <div class="space-y-3 pt-2" id="q-options-container">
+                            <!-- Dynamic Options loaded via JS -->
+                        </div>
+
+                        <!-- Solution Box (For Mode Belajar or Post-Exam) -->
+                        <div id="solution-box" class="hidden bg-emerald-50/80 border border-emerald-200 rounded-2xl p-5 space-y-3">
+                            <div class="flex items-center justify-between text-almazaya-900 font-extrabold text-xs uppercase tracking-wider">
+                                <span class="flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-square-check text-emerald-600"></i>
+                                    <span>Kunci & Pembahasan Lengkap</span>
+                                </span>
+                                <span id="sol-key-badge" class="px-2 py-0.5 bg-emerald-200 text-emerald-900 rounded font-mono text-[11px]">Kunci: A</span>
+                            </div>
+                            <div class="text-xs text-slate-700 leading-relaxed space-y-2 border-t border-emerald-200/60 pt-2" id="sol-text">
+                                <!-- Dynamic Solution content -->
+                            </div>
+                        </div>
+
+                        <!-- Bottom Action Buttons (Prev / Next) -->
+                        <div class="flex items-center justify-between border-t border-slate-100 pt-5">
+                            <button id="btn-prev-q" onclick="prevQuestion()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed rounded-xl text-xs font-bold text-slate-700 transition-all">
+                                <i class="fa-solid fa-chevron-left mr-1"></i> Sebelumnya
+                            </button>
+
+                            <button id="btn-toggle-pembahasan" onclick="togglePembahasan()" class="px-3.5 py-2 bg-emerald-100 hover:bg-emerald-200 text-almazaya-800 rounded-xl text-xs font-extrabold transition-all">
+                                <i class="fa-solid fa-lightbulb mr-1"></i> <span id="toggle-pembahasan-text">Lihat Pembahasan</span>
+                            </button>
+
+                            <button id="btn-next-q" onclick="nextQuestion()" class="px-4 py-2 bg-almazaya-800 hover:bg-almazaya-900 text-white rounded-xl text-xs font-bold transition-all shadow-sm">
+                                Selanjutnya <i class="fa-solid fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDEBAR: QUESTION NAVIGATOR (1 Col) -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <span class="text-xs font-extrabold text-slate-800 uppercase tracking-wider">Navigasi Soal</span>
+                            <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full" id="progress-counter">0 / 20 Terjawab</span>
+                        </div>
+
+                        <!-- Number Grid -->
+                        <div class="grid grid-cols-5 gap-2" id="nav-grid">
+                            <!-- Rendered 1 to 20 dynamically -->
+                        </div>
+
+                        <!-- Legend -->
+                        <div class="border-t border-slate-100 pt-3 space-y-1.5 text-[11px] text-slate-500 font-medium">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded bg-almazaya-800"></span>
+                                <span>Sudah Dijawab</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded bg-slate-100 border border-slate-300"></span>
+                                <span>Belum Dijawab</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded bg-amber-400"></span>
+                                <span>Soal Aktif</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RESULT SCREEN / MODAL AFTER EXAM -->
+        <div id="result-modal" class="hidden fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-6 text-center transform transition-all border border-slate-100">
+                
+                <div class="w-20 h-20 rounded-full bg-emerald-100 text-almazaya-800 mx-auto flex items-center justify-center text-3xl shadow-inner border-2 border-emerald-300">
+                    <i class="fa-solid fa-trophy text-gold-500"></i>
+                </div>
+
+                <div class="space-y-1">
+                    <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-wider">Hasil Ujian TKA Lesson 3</span>
+                    <h3 class="text-2xl font-black text-slate-900">Nilai Akhir Anda</h3>
+                </div>
+
+                <!-- Big Score Circle -->
+                <div class="bg-gradient-to-br from-almazaya-800 to-teal-900 rounded-3xl p-6 text-white shadow-lg space-y-1">
+                    <div class="text-5xl font-black text-gold-400" id="final-score-text">0</div>
+                    <div class="text-xs text-emerald-200 uppercase font-semibold tracking-wider" id="final-score-subtitle">Dari Total 100 Poin</div>
+                </div>
+
+                <!-- Stats summary -->
+                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="text-slate-400">Benar</div>
+                        <div class="font-bold text-emerald-600 text-lg" id="score-correct-count">0</div>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="text-slate-400">Salah</div>
+                        <div class="font-bold text-red-500 text-lg" id="score-wrong-count">0</div>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <div class="text-slate-400">Akurasi</div>
+                        <div class="font-bold text-slate-800 text-lg" id="score-accuracy-text">0%</div>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                    <button onclick="reviewExamAnswers()" class="flex-1 py-3 bg-almazaya-800 hover:bg-almazaya-900 text-white font-bold rounded-xl text-xs transition-all shadow-md">
+                        <i class="fa-solid fa-magnifying-glass mr-1"></i> Review Pembahasan
+                    </button>
+                    <button onclick="restartQuiz()" class="py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs transition-all">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Ulangi
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MODE SELECTION MODAL -->
+        <div id="mode-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-6 border border-slate-100">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 class="font-extrabold text-slate-900 text-lg">Pilih Mode Pengerjaan</h3>
+                    <button onclick="closeModeModal()" class="text-slate-400 hover:text-slate-600 text-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Mode Belajar option -->
+                    <div onclick="selectQuizMode('belajar')" class="p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50/50 hover:bg-emerald-50 cursor-pointer transition-all flex items-start space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Mode Belajar (Latihan)</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Dapat melihat kunci & pembahasan langsung di tiap nomor. Tanpa batasan waktu.</div>
+                        </div>
+                    </div>
+
+                    <!-- Mode Ujian option -->
+                    <div onclick="selectQuizMode('ujian')" class="p-4 rounded-2xl border-2 border-slate-200 hover:border-gold-500 hover:bg-amber-50/50 cursor-pointer transition-all flex items-start space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gold-500 text-slate-900 flex items-center justify-center font-bold shrink-0">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Mode Ujian (Simulasi Real)</div>
+                            <div class="text-xs text-slate-600 mt-0.5">Timer 45 menit. Pembahasan disembunyikan sampai ujian selesai disubmit.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="closeModeModal()" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs">
+                        Terapkan & Lanjutkan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Global helper to trigger KaTeX math rendering
+        function renderMath() {
+            if (window.renderMathInElement) {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+
+        // 20 Questions Data from PDF Lesson 3 with exact SVG graphics matching PDF drawings
+        const questionsData = [
+            {
+                id: 1,
+                type: 'single',
+                topic: 'Transformasi Geometri',
+                text: 'Jika titik $G(-6,-8)$ dirotasikan sebesar $90^{\\circ}$ berlawanan dengan jarum jam terhadap titik asal $O(0,0)$, kemudian dirotasikan lagi sebesar $180^{\\circ}$ terhadap titik asal $O(0,0)$. Maka bayangan dari titik $G$ adalah ....',
+                diagram: null,
+                options: [
+                    'A. (-8, 6)',
+                    'B. (8, -6)',
+                    'C. (-8, -6)',
+                    'D. (8, 6)'
+                ],
+                key: 0, // A
+                solution: '<b>Langkah 1:</b> Rotasi $90^{\\circ}$ berlawanan arah jarum jam (CCW):<br>' +
+                          'Rumus: $(x, y) \\rightarrow (-y, x)$<br>' +
+                          '$G(-6,-8) \\rightarrow G\'(-(-8), -6) = G\'(8, -6)$<br><br>' +
+                          '<b>Langkah 2:</b> Rotasi $180^{\\circ}$ terhadap titik asal:<br>' +
+                          'Rumus: $(x, y) \\rightarrow (-x, -y)$<br>' +
+                          '$G\'(8, -6) \\rightarrow G\'\'(-8, -(-6)) = G\'\'(-8, 6)$ <b>(Pilihan A)</b>'
+            },
+            {
+                id: 2,
+                type: 'single',
+                topic: 'Transformasi Geometri',
+                text: 'Diketahui $G(x,y)$ ditranslasi terhadap $T(4,-2)$ kemudian dirotasi sebesar $90^{\\circ}$ searah jarum jam dengan titik pusat $O(0,0)$. Kemudian dilanjutkan dengan dilatasi terhadap titik pusat $P(1,-1)$ dengan faktor skala -1 menghasilkan bayangan $G\'\'\'(6,8)$. Maka $G(x,y)$ adalah ....',
+                diagram: null,
+                options: [
+                    'A. (14, -6)',
+                    'B. (6, -2)',
+                    'C. (8, -12)',
+                    'D. (4, 8)'
+                ],
+                key: 1, // B
+                solution: '1. Translasi $T(4,-2)$: $(x+4, y-2)$<br>' +
+                          '2. Rotasi $90^{\\circ}$ searah jarum jam (CW): $(y-2, -(x+4)) = (y-2, -x-4)$<br>' +
+                          '3. Dilatasi pusat $P(1,-1)$ dengan $k=-1$:<br>' +
+                          '$x\' = 1 + (-1)(a - 1) = 1 - a + 1 = 2 - a = 2 - (y-2) = 4 - y$<br>' +
+                          '$y\' = -1 + (-1)(b - (-1)) = -1 - b - 1 = -2 - b = -2 - (-x-4) = x + 2$<br>' +
+                          'Samakan dengan $G\'\'\'(6,8)$:<br>' +
+                          '$4 - y = 6 \\Rightarrow y = -2$<br>' +
+                          '$x + 2 = 8 \\Rightarrow x = 6$<br>' +
+                          'Jadi $G(x,y) = (6, -2)$ <b>(Pilihan B)</b>'
+            },
+            {
+                id: 3,
+                type: 'single',
+                topic: 'Transformasi Geometri',
+                text: 'Bayangan titik $J(-2,-4)$ dilatasi terhadap titik asal dengan faktor skala -2, kemudian dilatasi lagi terhadap titik asal dengan faktor skala 3. Maka bayangan dari titik $J$ adalah ....',
+                diagram: null,
+                options: [
+                    'A. (4, -12)',
+                    'B. (12, 24)',
+                    'C. (-6, 8)',
+                    'D. (-12, -8)'
+                ],
+                key: 1, // B
+                solution: 'Dua dilatasi berturut-turut dengan pusat titik asal dapat digabungkan faktor skalanya:<br>' +
+                          '$k_{\\text{gabungan}} = (-2) \\times 3 = -6$<br>' +
+                          '$J\' = (-6 \\times (-2), -6 \\times (-4)) = (12, 24)$ <b>(Pilihan B)</b>'
+            },
+            {
+                id: 4,
+                type: 'single',
+                topic: 'Kekongruenan',
+                text: 'Dari gambar belah ketupat di bawah ini, manakah bangun yang KONGRUEN?',
+                diagram: `<svg viewBox="0 0 540 180" class="w-full max-w-lg h-auto">
+                            <!-- Bangun 1: Cyan Rhombus Upright (sisi 8 cm, sudut atas 60deg) -->
+                            <g transform="translate(30,10)">
+                                <polygon points="55,5 105,75 55,145 5,75" fill="#22d3ee" stroke="#0e7490" stroke-width="2"/>
+                                <!-- Tick marks on all 4 sides -->
+                                <line x1="26" y1="36" x2="34" y2="44" stroke="#0e7490" stroke-width="2"/>
+                                <line x1="76" y1="36" x2="84" y2="44" stroke="#0e7490" stroke-width="2"/>
+                                <line x1="26" y1="106" x2="34" y2="114" stroke="#0e7490" stroke-width="2"/>
+                                <line x1="76" y1="106" x2="84" y2="114" stroke="#0e7490" stroke-width="2"/>
+                                <!-- Labels -->
+                                <text x="55" y="32" font-size="12" font-weight="extrabold" text-anchor="middle" fill="#0f172a">60°</text>
+                                <text x="-5" y="110" font-size="12" font-weight="extrabold" fill="#0f172a">8cm</text>
+                                <text x="55" y="168" font-size="13" font-weight="bold" text-anchor="middle" fill="#0f172a">(1)</text>
+                            </g>
+
+                            <!-- Bangun 2: Green Rhombus Slanted (sisi 8,8 cm, sudut bawah 60deg) -->
+                            <g transform="translate(210,10)">
+                                <polygon points="65,10 105,75 45,140 5,75" fill="#a3e635" stroke="#4d7c0f" stroke-width="2"/>
+                                <!-- Tick marks on all 4 sides -->
+                                <line x1="31" y1="38" x2="39" y2="46" stroke="#4d7c0f" stroke-width="2"/>
+                                <line x1="81" y1="38" x2="89" y2="46" stroke="#4d7c0f" stroke-width="2"/>
+                                <line x1="21" y1="103" x2="29" y2="111" stroke="#4d7c0f" stroke-width="2"/>
+                                <line x1="71" y1="103" x2="79" y2="111" stroke="#4d7c0f" stroke-width="2"/>
+                                <!-- Labels -->
+                                <text x="30" y="125" font-size="12" font-weight="extrabold" fill="#0f172a">60°</text>
+                                <text x="85" y="50" font-size="12" font-weight="extrabold" fill="#0f172a">8,8 cm</text>
+                                <text x="55" y="168" font-size="13" font-weight="bold" text-anchor="middle" fill="#0f172a">(2)</text>
+                            </g>
+
+                            <!-- Bangun 3: Yellow Rhombus Wide (sisi 8 cm, sudut atas 120deg) -->
+                            <g transform="translate(380,10)">
+                                <polygon points="60,25 115,75 60,125 5,75" fill="#fde047" stroke="#a16207" stroke-width="2"/>
+                                <!-- Tick marks on all 4 sides -->
+                                <line x1="28" y1="46" x2="36" y2="54" stroke="#a16207" stroke-width="2"/>
+                                <line x1="84" y1="46" x2="92" y2="54" stroke="#a16207" stroke-width="2"/>
+                                <line x1="28" y1="96" x2="36" y2="104" stroke="#a16207" stroke-width="2"/>
+                                <line x1="84" y1="96" x2="92" y2="104" stroke="#a16207" stroke-width="2"/>
+                                <!-- Labels -->
+                                <text x="60" y="48" font-size="12" font-weight="extrabold" text-anchor="middle" fill="#0f172a">120°</text>
+                                <text x="0" y="120" font-size="12" font-weight="extrabold" fill="#0f172a">8cm</text>
+                                <text x="60" y="168" font-size="13" font-weight="bold" text-anchor="middle" fill="#0f172a">(3)</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. (1) dan (2)',
+                    'B. (2) dan (3)',
+                    'C. (1) dan (3)',
+                    'D. Tidak ada yang kongruen'
+                ],
+                key: 2, // C
+                solution: 'Bangun (1) dan (3) keduanya adalah belah ketupat dengan panjang sisi sama yaitu 8 cm.<br>' +
+                          'Pada belah ketupat, sudut yang berdekatan saling berpelurus: $180^{\\circ} - 60^{\\circ} = 120^{\\circ}$.<br>' +
+                          'Jadi, bangun (1) dan (3) persis sama (kongruen), hanya berbeda posisi rotasi.<br>' +
+                          'Bangun (2) memiliki panjang sisi 8,8 cm (berbeda), sehingga tidak kongruen. <b>(Pilihan C)</b>'
+            },
+            {
+                id: 5,
+                type: 'single',
+                topic: 'Kekongruenan Segitiga',
+                text: 'Perhatikan gambar di bawah ini! Diketahui $\\Delta DEF \\cong \\Delta HGI$ dan $m\\angle EDF = 55^{\\circ}$. Berapakah $m\\angle HIG$?',
+                diagram: `<svg viewBox="0 0 500 180" class="w-full max-w-md h-auto">
+                            <!-- Segitiga DEF -->
+                            <g transform="translate(30,20)">
+                                <polygon points="10,130 130,20 130,130" fill="none" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Right angle at E -->
+                                <path d="M 130,115 L 115,115 L 115,130" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Angle arc at D -->
+                                <path d="M 35,130 A 25 25 0 0 0 28,113" fill="none" stroke="#059669" stroke-width="2"/>
+                                <!-- Labels -->
+                                <text x="-5" y="145" font-size="13" font-weight="extrabold" fill="#0f172a">D</text>
+                                <text x="130" y="12" font-size="13" font-weight="extrabold" fill="#0f172a">E</text>
+                                <text x="142" y="140" font-size="13" font-weight="extrabold" fill="#0f172a">F</text>
+                            </g>
+
+                            <!-- Segitiga HGI -->
+                            <g transform="translate(290,20)">
+                                <polygon points="20,20 120,20 120,140" fill="none" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Right angle at G -->
+                                <path d="M 120,35 L 105,35 L 105,20" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Angle arc at H -->
+                                <path d="M 120,115 A 25 25 0 0 0 102,123" fill="none" stroke="#059669" stroke-width="2"/>
+                                <!-- Labels -->
+                                <text x="10" y="15" font-size="13" font-weight="extrabold" fill="#0f172a">I</text>
+                                <text x="130" y="20" font-size="13" font-weight="extrabold" fill="#0f172a">G</text>
+                                <text x="128" y="155" font-size="13" font-weight="extrabold" fill="#0f172a">H</text>
+                                <text x="60" y="12" font-size="11" font-weight="extrabold" fill="#0f172a">12 cm</text>
+                                <text x="45" y="95" font-size="11" font-weight="extrabold" fill="#0f172a">20 cm</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 75°',
+                    'B. 35°',
+                    'C. 125°',
+                    'D. 215°'
+                ],
+                key: 1, // B
+                solution: 'Sisi dan sudut bersesuaian:<br>' +
+                          'Pada gambar, sudut berbusur $D$ bersesuaian dengan sudut $H$, sehingga $\\angle EDF = \\angle GHI = 55^{\\circ}$.<br>' +
+                          'Sudut $F$ bersesuaian dengan sudut $I$.<br>' +
+                          'Maka $m\\angle HIG = m\\angle DFE = 180^{\\circ} - 90^{\\circ} - 55^{\\circ} = 35^{\\circ}$. <b>(Pilihan B)</b>'
+            },
+            {
+                id: 6,
+                type: 'single',
+                topic: 'Kekongruenan Segitiga',
+                text: 'Perhatikan gambar di bawah ini! Diketahui $\\Delta DEF \\cong \\Delta HGI$. Berapakah panjang sisi $DE$?',
+                diagram: `<svg viewBox="0 0 500 180" class="w-full max-w-md h-auto">
+                            <!-- Segitiga DEF -->
+                            <g transform="translate(30,20)">
+                                <polygon points="10,130 130,20 130,130" fill="none" stroke="#0f172a" stroke-width="2"/>
+                                <path d="M 130,115 L 115,115 L 115,130" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="-5" y="145" font-size="13" font-weight="extrabold" fill="#0f172a">D</text>
+                                <text x="130" y="12" font-size="13" font-weight="extrabold" fill="#0f172a">E</text>
+                                <text x="142" y="140" font-size="13" font-weight="extrabold" fill="#0f172a">F</text>
+                            </g>
+
+                            <!-- Segitiga HGI -->
+                            <g transform="translate(290,20)">
+                                <polygon points="20,20 120,20 120,140" fill="none" stroke="#0f172a" stroke-width="2"/>
+                                <path d="M 120,35 L 105,35 L 105,20" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <text x="10" y="15" font-size="13" font-weight="extrabold" fill="#0f172a">I</text>
+                                <text x="130" y="20" font-size="13" font-weight="extrabold" fill="#0f172a">G</text>
+                                <text x="128" y="155" font-size="13" font-weight="extrabold" fill="#0f172a">H</text>
+                                <text x="60" y="12" font-size="11" font-weight="extrabold" fill="#0f172a">12 cm</text>
+                                <text x="45" y="95" font-size="11" font-weight="extrabold" fill="#0f172a">20 cm</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 16 cm',
+                    'B. 14 cm',
+                    'C. 8 cm',
+                    'D. 18 cm'
+                ],
+                key: 0, // A
+                solution: 'Pada $\\Delta HGI$ siku-siku di $G$, hipotenusa $IH = 20\\text{ cm}$ dan $IG = 12\\text{ cm}$.<br>' +
+                          'Gunakan Pythagoras untuk mencari $HG$:<br>' +
+                          '$HG = \\sqrt{IH^2 - IG^2} = \\sqrt{20^2 - 12^2} = \\sqrt{400 - 144} = \\sqrt{256} = 16\\text{ cm}$.<br>' +
+                          'Karena $\\Delta DEF \\cong \\Delta HGI$, sisi $DE$ bersesuaian dengan $HG$, sehingga $DE = 16\\text{ cm}$. <b>(Pilihan A)</b>'
+            },
+            {
+                id: 7,
+                type: 'single',
+                topic: 'Kekongruenan Segi Empat',
+                text: 'Perhatikan gambar di bawah ini! Jika gambar tersebut kongruen, berapakah besar sudut $x^{\\circ}$ dan $y^{\\circ}$?',
+                diagram: `<svg viewBox="0 0 500 160" class="w-full max-w-md h-auto">
+                            <!-- Bangun Kiri -->
+                            <g transform="translate(30,15)">
+                                <polygon points="35,10 120,10 145,105 5,95" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Side ticks -->
+                                <line x1="130" y1="52" x2="138" y2="60" stroke="#0f172a" stroke-width="1.5"/>
+                                <line x1="70" y1="96" x2="74" y2="104" stroke="#0f172a" stroke-width="1.5"/>
+                                <line x1="76" y1="96" x2="80" y2="104" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Angles -->
+                                <text x="40" y="32" font-size="11" font-weight="extrabold" fill="#0f172a">85°</text>
+                                <text x="100" y="32" font-size="11" font-weight="extrabold" fill="#0f172a">70°</text>
+                                <text x="115" y="95" font-size="11" font-weight="extrabold" fill="#0f172a">125°</text>
+                                <text x="20" y="85" font-size="11" font-weight="extrabold" fill="#0f172a">y°</text>
+                            </g>
+
+                            <!-- Bangun Kanan -->
+                            <g transform="translate(280,15)">
+                                <polygon points="35,10 120,10 145,105 5,95" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Side ticks -->
+                                <line x1="130" y1="52" x2="138" y2="60" stroke="#0f172a" stroke-width="1.5"/>
+                                <line x1="70" y1="96" x2="74" y2="104" stroke="#0f172a" stroke-width="1.5"/>
+                                <line x1="76" y1="96" x2="80" y2="104" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Angles -->
+                                <text x="40" y="32" font-size="11" font-weight="extrabold" fill="#0f172a">x°</text>
+                                <text x="100" y="32" font-size="11" font-weight="extrabold" fill="#0f172a">70°</text>
+                                <text x="115" y="95" font-size="11" font-weight="extrabold" fill="#0f172a">125°</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 85° dan 80°',
+                    'B. 70° dan 80°',
+                    'C. 85° dan 70°',
+                    'D. 70° dan 80°'
+                ],
+                key: 0, // A
+                solution: 'Karena kedua bangun kongruen, sudut-sudut bersesuaian sama besar:<br>' +
+                          '• $x^{\\circ}$ bersesuaian dengan sudut $85^{\\circ} \\Rightarrow x = 85^{\\circ}$.<br>' +
+                          '• Jumlah sudut segi empat = $360^{\\circ}$.<br>' +
+                          '$y = 360^{\\circ} - (85^{\\circ} + 70^{\\circ} + 125^{\\circ}) = 360^{\\circ} - 280^{\\circ} = 80^{\\circ}$.<br>' +
+                          'Jadi $x^{\\circ} = 85^{\\circ}$ dan $y^{\\circ} = 80^{\\circ}$. <b>(Pilihan A)</b>'
+            },
+            {
+                id: 8,
+                type: 'single',
+                topic: 'Kesebangunan',
+                text: 'Perhatikan dua bangun yang sebangun di bawah ini! Tentukan panjang $LH$!',
+                diagram: `<svg viewBox="0 0 520 180" class="w-full max-w-md h-auto">
+                            <!-- Bangun Kiri: KLJH -->
+                            <g transform="translate(20,15)">
+                                <polygon points="80,5 160,15 130,135 25,135" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                                <text x="10" y="75" font-size="12" font-weight="extrabold" fill="#0f172a">L</text>
+                                <text x="80" y="-2" font-size="12" font-weight="extrabold" fill="#0f172a">K</text>
+                                <text x="170" y="15" font-size="12" font-weight="extrabold" fill="#0f172a">J</text>
+                                <text x="140" y="148" font-size="12" font-weight="extrabold" fill="#0f172a">I</text>
+                                <text x="10" y="148" font-size="12" font-weight="extrabold" fill="#0f172a">H</text>
+                                <!-- Labels -->
+                                <text x="65" y="155" font-size="11" font-weight="extrabold" fill="#0f172a">24 cm</text>
+                                <text x="148" y="80" font-size="11" font-weight="extrabold" fill="#0f172a">40 cm</text>
+                            </g>
+
+                            <!-- Bangun Kanan: PONM -->
+                            <g transform="translate(280,15)">
+                                <polygon points="60,25 125,32 100,125 20,125" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+                                <text x="5" y="75" font-size="12" font-weight="extrabold" fill="#0f172a">Q</text>
+                                <text x="60" y="18" font-size="12" font-weight="extrabold" fill="#0f172a">P</text>
+                                <text x="132" y="32" font-size="12" font-weight="extrabold" fill="#0f172a">O</text>
+                                <text x="108" y="138" font-size="12" font-weight="extrabold" fill="#0f172a">N</text>
+                                <text x="5" y="138" font-size="12" font-weight="extrabold" fill="#0f172a">M</text>
+                                <!-- Labels -->
+                                <text x="50" y="145" font-size="11" font-weight="extrabold" fill="#0f172a">18 cm</text>
+                                <text x="-5" y="70" font-size="11" font-weight="extrabold" fill="#0f172a">12 cm</text>
+                                <text x="35" y="18" font-size="11" font-weight="extrabold" fill="#0f172a">15 cm</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 16 cm',
+                    'B. 20 cm',
+                    'C. 24 cm',
+                    'D. 28 cm'
+                ],
+                key: 0, // A
+                solution: 'Gunakan perbandingan kesebangunan sisi bersesuaian:<br>' +
+                          '$\\frac{HI}{MN} = \\frac{24}{18} = \\frac{4}{3}$<br>' +
+                          'Sisi $LH$ bersesuaian dengan $QM = 12\\text{ cm}$:<br>' +
+                          '$\\frac{LH}{12} = \\frac{4}{3} \\Rightarrow LH = 12 \\times \\frac{4}{3} = 16\\text{ cm}$. <b>(Pilihan A)</b>'
+            },
+            {
+                id: 9,
+                type: 'single',
+                topic: 'Kesebangunan Trapesium',
+                text: 'Perhatikan dua bangun di bawah ini! Tentukan besar sudut $c^{\\circ}$!',
+                diagram: `<svg viewBox="0 0 520 180" class="w-full max-w-md h-auto">
+                            <!-- Trapesium Kiri: KLMN (Siku-siku di K dan N) -->
+                            <g transform="translate(20,15)">
+                                <polygon points="15,10 100,10 150,130 15,130" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Right angle symbols at K and N -->
+                                <path d="M 15,25 L 30,25 L 30,10" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <path d="M 15,115 L 30,115 L 30,130" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Vertices -->
+                                <text x="-2" y="10" font-size="12" font-weight="extrabold" fill="#0f172a">K</text>
+                                <text x="105" y="10" font-size="12" font-weight="extrabold" fill="#0f172a">L</text>
+                                <text x="158" y="138" font-size="12" font-weight="extrabold" fill="#0f172a">M</text>
+                                <text x="-2" y="142" font-size="12" font-weight="extrabold" fill="#0f172a">N</text>
+                                <!-- Labels -->
+                                <text x="45" y="28" font-size="11" font-weight="extrabold" fill="#0f172a">8 cm</text>
+                                <text x="65" y="148" font-size="11" font-weight="extrabold" fill="#0f172a">14 cm</text>
+                                <text x="65" y="32" font-size="11" font-weight="extrabold" fill="#0f172a">115°</text>
+                                <text x="120" y="120" font-size="11" font-weight="extrabold" fill="#0f172a">a°</text>
+                            </g>
+
+                            <!-- Trapesium Kanan: OPQR (Siku-siku di R dan Q) -->
+                            <g transform="translate(280,15)">
+                                <polygon points="15,40 135,10 135,130 15,130" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Right angle symbols at R and Q -->
+                                <path d="M 15,115 L 30,115 L 30,130" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <path d="M 120,130 L 120,115 L 135,115" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Vertices -->
+                                <text x="-2" y="40" font-size="12" font-weight="extrabold" fill="#0f172a">O</text>
+                                <text x="142" y="10" font-size="12" font-weight="extrabold" fill="#0f172a">P</text>
+                                <text x="142" y="142" font-size="12" font-weight="extrabold" fill="#0f172a">Q</text>
+                                <text x="-2" y="142" font-size="12" font-weight="extrabold" fill="#0f172a">R</text>
+                                <!-- Labels -->
+                                <text x="142" y="75" font-size="11" font-weight="extrabold" fill="#0f172a">21 cm</text>
+                                <text x="60" y="148" font-size="11" font-weight="extrabold" fill="#0f172a">12 cm</text>
+                                <text x="30" y="60" font-size="11" font-weight="extrabold" fill="#0f172a">b°</text>
+                                <text x="110" y="32" font-size="11" font-weight="extrabold" fill="#0f172a">c°</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 115°',
+                    'B. 65°',
+                    'C. 55°',
+                    'D. 105°'
+                ],
+                key: 1, // B
+                solution: 'Pada trapesium siku-siku kiri, dua sudut sejajar dalam sepihak saling berpelurus:<br>' +
+                          '$\\angle M = a^{\\circ} = 180^{\\circ} - 115^{\\circ} = 65^{\\circ}$.<br>' +
+                          'Sudut $c^{\\circ}$ pada bangun kanan bersesuaian dengan sudut $a^{\\circ}$ pada bangun kiri.<br>' +
+                          'Maka $c^{\\circ} = 65^{\\circ}$. <b>(Pilihan B)</b>'
+            },
+            {
+                id: 10,
+                type: 'single',
+                topic: 'Kesebangunan Segitiga',
+                text: 'Perhatikan gambar di bawah ini! Tentukan panjang $MN$!',
+                diagram: `<svg viewBox="0 0 320 220" class="w-full max-w-xs h-auto">
+                            <g transform="translate(40,15)">
+                                <polygon points="120,5 15,180 225,180" fill="none" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Parallel line MN -->
+                                <line x1="50" y1="122" x2="190" y2="122" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Vertices -->
+                                <text x="118" y="-2" font-size="13" font-weight="extrabold" fill="#0f172a">O</text>
+                                <text x="30" y="122" font-size="13" font-weight="extrabold" fill="#0f172a">M</text>
+                                <text x="198" y="122" font-size="13" font-weight="extrabold" fill="#0f172a">N</text>
+                                <text x="-5" y="195" font-size="13" font-weight="extrabold" fill="#0f172a">K</text>
+                                <text x="232" y="195" font-size="13" font-weight="extrabold" fill="#0f172a">L</text>
+                                <!-- Side values -->
+                                <text x="75" y="60" font-size="11" font-weight="extrabold" fill="#0f172a">8 cm</text>
+                                <text x="10" y="155" font-size="11" font-weight="extrabold" fill="#0f172a">4 cm</text>
+                                <text x="105" y="200" font-size="11" font-weight="extrabold" fill="#0f172a">24 cm</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 12 cm',
+                    'B. 16 cm',
+                    'C. 36 cm',
+                    'D. 48 cm'
+                ],
+                key: 1, // B
+                solution: 'Segitiga $OMN$ sebangun dengan segitiga $OKL$ (karena $MN \\parallel KL$).<br>' +
+                          '$OK = OM + MK = 8 + 4 = 12\\text{ cm}$.<br>' +
+                          'Perbandingan kesebangunan: $\\frac{OM}{OK} = \\frac{8}{12} = \\frac{2}{3}$.<br>' +
+                          '$\\frac{MN}{KL} = \\frac{2}{3} \\Rightarrow MN = \\frac{2}{3} \\times 24 = 16\\text{ cm}$. <b>(Pilihan B)</b>'
+            },
+            {
+                id: 11,
+                type: 'single',
+                topic: 'Pythagoras & Luas Segitiga',
+                text: 'Sebuah segitiga siku-siku memiliki panjang alas $10\\text{ cm}$ dan miring $26\\text{ cm}$. Maka luas segitiga tersebut adalah ....',
+                diagram: null,
+                options: [
+                    'A. 120 cm²',
+                    'B. 130 cm²',
+                    'C. 140 cm²',
+                    'D. 150 cm²'
+                ],
+                key: 0, // A
+                solution: 'Tinggi segitiga $= \\sqrt{26^2 - 10^2} = \\sqrt{676 - 100} = \\sqrt{576} = 24\\text{ cm}$.<br>' +
+                          'Luas $= \\frac{1}{2} \\times 10 \\times 24 = 120\\text{ cm}^2$. <b>(Pilihan A)</b>'
+            },
+            {
+                id: 12,
+                type: 'single',
+                topic: 'Pengukuran Bangun Datar',
+                text: 'Perhatikan gambar di bawah ini. Berdasarkan gambar di atas, panjang $AC$ adalah ....',
+                diagram: `<svg viewBox="0 0 460 180" class="w-full max-w-sm h-auto">
+                            <g transform="translate(20,15)">
+                                <polygon points="10,140 10,20 220,20 390,140" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Dashed line DB -->
+                                <line x1="220" y1="20" x2="220" y2="140" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4"/>
+                                <!-- Right angle symbol at B -->
+                                <path d="M 220,125 L 235,125 L 235,140" fill="none" stroke="#0f172a" stroke-width="1.5"/>
+                                <!-- Vertices -->
+                                <text x="-8" y="155" font-size="13" font-weight="extrabold" fill="#0f172a">A</text>
+                                <text x="-8" y="15" font-size="13" font-weight="extrabold" fill="#0f172a">E</text>
+                                <text x="220" y="12" font-size="13" font-weight="extrabold" fill="#0f172a">D</text>
+                                <text x="218" y="158" font-size="13" font-weight="extrabold" fill="#0f172a">B</text>
+                                <text x="400" y="155" font-size="13" font-weight="extrabold" fill="#0f172a">C</text>
+                                <!-- Dimension Labels -->
+                                <text x="100" y="12" font-size="11" font-weight="extrabold" fill="#0f172a">20 cm</text>
+                                <text x="-35" y="85" font-size="11" font-weight="extrabold" fill="#0f172a">10 cm</text>
+                                <text x="315" y="75" font-size="11" font-weight="extrabold" fill="#0f172a">26 cm</text>
+                            </g>
+                         </svg>`,
+                options: [
+                    'A. 40 cm',
+                    'B. 41 cm',
+                    'C. 42 cm',
+                    'D. 44 cm'
+                ],
+                key: 3, // D
+                solution: '1. $AB = ED = 20\\text{ cm}$ dan $DB = AE = 10\\text{ cm}$.<br>' +
+                          '2. Pada $\\Delta DBC$ siku-siku di $B$:<br>' +
+                          '$BC = \\sqrt{DC^2 - DB^2} = \\sqrt{26^2 - 10^2} = \\sqrt{676 - 100} = \\sqrt{576} = 24\\text{ cm}$.<br>' +
+                          '3. $AC = AB + BC = 20 + 24 = 44\\text{ cm}$. <b>(Pilihan D)</b>'
+            },
+            {
+                id: 13,
+                type: 'multiple',
+                topic: 'Luas & Keliling Persegi Panjang',
+                text: 'Sebuah sekolah memiliki taman berbentuk persegi panjang dengan panjang $18\\text{ m}$ dan lebar $12\\text{ m}$. Taman tersebut akan ditanami rumput, sedangkan bagian tepinya akan dipasang pagar. Pilihlah semua pernyataan yang BENAR!',
+                diagram: null,
+                options: [
+                    'A. Luas taman adalah 216 m².',
+                    'B. Keliling taman adalah 60 m.',
+                    'C. Jika biaya penanaman rumput Rp15.000,00 per m², total biaya yang diperlukan adalah Rp3.240.000,00.',
+                    'D. Jika pagar yang tersedia sepanjang 55 m, pagar tersebut cukup untuk mengelilingi taman.'
+                ],
+                key: [0, 1, 2], // A, B, C
+                solution: '• A: Luas $= 18 \\times 12 = 216\\text{ m}^2$ <i>(BENAR)</i><br>' +
+                          '• B: Keliling $= 2(18 + 12) = 60\\text{ m}$ <i>(BENAR)</i><br>' +
+                          '• C: Total biaya $= 216 \\times \\text{Rp}15.000 = \\text{Rp}3.240.000,00$ <i>(BENAR)</i><br>' +
+                          '• D: Pagar $55\\text{ m} < 60\\text{ m}$ keliling $\\Rightarrow$ Kurang / Tidak cukup <i>(SALAH)</i><br>' +
+                          '<b>Jawaban Benar: A, B, C</b>'
+            },
+            {
+                id: 14,
+                type: 'multiple',
+                topic: 'Pemasangan Ubin Lantai',
+                text: 'Sebuah ruang kelas berbentuk persegi panjang dengan ukuran panjang $8\\text{ m}$ dan lebar $6\\text{ m}$. Lantai ruangan akan dipasang ubin berbentuk persegi dengan panjang sisi $40\\text{ cm}$. Ubin dijual dalam kemasan yang berisi 10 buah. Pilihlah semua pernyataan yang BENAR!',
+                diagram: null,
+                options: [
+                    'A. Luas lantai kelas adalah 48 m².',
+                    'B. Luas satu ubin adalah 0,16 m².',
+                    'C. Jumlah ubin yang diperlukan tepat 310 buah.',
+                    'D. Jumlah kemasan minimum yang harus dibeli adalah 30 kemasan.'
+                ],
+                key: [0, 1, 3], // A, B, D
+                solution: '• A: Luas lantai $= 8 \\times 6 = 48\\text{ m}^2$ <i>(BENAR)</i><br>' +
+                          '• B: Luas 1 ubin $= 0,4 \\times 0,4 = 0,16\\text{ m}^2$ <i>(BENAR)</i><br>' +
+                          '• C: Jumlah ubin $= 48 \\div 0,16 = 300\\text{ buah} \\neq 310$ <i>(SALAH)</i><br>' +
+                          '• D: Kemasan $= 300 \\div 10 = 30\\text{ kemasan}$ <i>(BENAR)</i><br>' +
+                          '<b>Jawaban Benar: A, B, D</b>'
+            },
+            {
+                id: 15,
+                type: 'multiple',
+                topic: 'Lingkaran & Pembatas',
+                text: 'Sebuah kolam ikan berbentuk lingkaran memiliki diameter $14\\text{ m}$. Di sekeliling kolam akan dibuat jalan setapak yang lebarnya tidak diperhitungkan dalam soal. Gunakan $\\pi = \\frac{22}{7}$. Pilihlah semua pernyataan yang BENAR!',
+                diagram: null,
+                options: [
+                    'A. Jari-jari kolam adalah 7 m.',
+                    'B. Keliling kolam adalah 44 m.',
+                    'C. Luas permukaan kolam adalah 154 m².',
+                    'D. Jika biaya pemasangan pembatas kolam Rp50.000,00 per meter, total biaya untuk mengelilingi kolam adalah Rp2.000.000,00.'
+                ],
+                key: [0, 1, 2], // A, B, C
+                solution: '• A: Jari-jari $r = 14 \\div 2 = 7\\text{ m}$ <i>(BENAR)</i><br>' +
+                          '• B: Keliling $= 2 \\times \\frac{22}{7} \\times 7 = 44\\text{ m}$ <i>(BENAR)</i><br>' +
+                          '• C: Luas $= \\frac{22}{7} \\times 7 \\times 7 = 154\\text{ m}^2$ <i>(BENAR)</i><br>' +
+                          '• D: Biaya $= 44 \\times 50.000 = \\text{Rp}2.200.000,00 \\neq 2.000.000$ <i>(SALAH)</i><br>' +
+                          '<b>Jawaban Benar: A, B, C</b>'
+            },
+            {
+                id: 16,
+                type: 'multiple',
+                topic: 'Volume Balok & Kubus',
+                text: 'Sebuah kotak penyimpanan berbentuk balok memiliki panjang $40\\text{ cm}$, lebar $25\\text{ cm}$, dan tinggi $30\\text{ cm}$. Kotak tersebut akan digunakan untuk menyimpan peralatan olahraga. Pilihlah semua pernyataan yang BENAR!',
+                diagram: null,
+                options: [
+                    'A. Volume kotak adalah 30.000 cm³.',
+                    'B. Volume kotak adalah 30 liter.',
+                    'C. Jika kotak diisi penuh dengan kubus kecil berukuran 5 cm pada setiap sisinya, diperlukan 240 kubus.',
+                    'D. Jika tinggi kotak diubah menjadi 50 cm sementara ukuran lainnya tetap, volumenya menjadi 40 liter.'
+                ],
+                key: [0, 1, 2], // A, B, C
+                solution: '• A: $V = 40 \\times 25 \\times 30 = 30.000\\text{ cm}^3$ <i>(BENAR)</i><br>' +
+                          '• B: $30.000\\text{ cm}^3 = 30\\text{ Liter}$ <i>(BENAR)</i><br>' +
+                          '• C: Banyak kubus $= \\frac{40}{5} \\times \\frac{25}{5} \\times \\frac{30}{5} = 8 \\times 5 \\times 6 = 240\\text{ kubus}$ <i>(BENAR)</i><br>' +
+                          '• D: Jika $t=50\\text{ cm}$, $V = 40 \\times 25 \\times 50 = 50.000\\text{ cm}^3 = 50\\text{ Liter} \\neq 40$ <i>(SALAH)</i><br>' +
+                          '<b>Jawaban Benar: A, B, C</b>'
+            },
+            {
+                id: 17,
+                type: 'multiple',
+                topic: 'Volume Tabung & Tangki',
+                text: 'Sebuah tangki air berbentuk tabung memiliki jari-jari $7\\text{ dm}$ dan tinggi $10\\text{ dm}$. Gunakan $\\pi = \\frac{22}{7}$. Tangki akan diisi air sampai penuh. Pilihlah semua pernyataan yang BENAR!',
+                diagram: null,
+                options: [
+                    'A. Diameter tangki adalah 14 dm.',
+                    'B. Luas alas tangki adalah 154 dm².',
+                    'C. Volume maksimum air yang dapat ditampung adalah 1.5400 liter.',
+                    'D. Jika tangki terisi setengah, volume air di dalamnya adalah 770 liter.'
+                ],
+                key: [0, 1, 3], // A, B, D
+                solution: '• A: Diameter $= 2 \\times 7 = 14\\text{ dm}$ <i>(BENAR)</i><br>' +
+                          '• B: Luas alas $= \\frac{22}{7} \\times 7 \\times 7 = 154\\text{ dm}^2$ <i>(BENAR)</i><br>' +
+                          '• C: Volume $= 154 \\times 10 = 1.540\\text{ dm}^3 = 1.540\\text{ Liter} \\neq 15.400$ <i>(SALAH)</i><br>' +
+                          '• D: Setengah volume $= 1.540 \\div 2 = 770\\text{ Liter}$ <i>(BENAR)</i><br>' +
+                          '<b>Jawaban Benar: A, B, D</b>'
+            },
+            {
+                id: 18,
+                type: 'tf_matrix',
+                topic: 'Prisma Segitiga',
+                text: 'Sebuah usaha kue membuat kemasan berbentuk prisma segitiga. Alas prisma berbentuk segitiga siku-siku dengan panjang sisi siku-siku $6\\text{ cm}$ dan $8\\text{ cm}$. Panjang prisma adalah $20\\text{ cm}$. Tentukan Benar atau Salah pada setiap pernyataan berikut:',
+                statements: [
+                    'Luas alas prisma adalah 24 cm².',
+                    'Panjang sisi miring segitiga adalah 10 cm.',
+                    'Volume kemasan adalah 480 cm³.',
+                    'Luas permukaan kemasan adalah 480 cm².'
+                ],
+                key: [true, true, true, false],
+                solution: '• Pernyataan 1: $L_{\\text{alas}} = \\frac{1}{2} \\times 6 \\times 8 = 24\\text{ cm}^2$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 2: Sisi miring $= \\sqrt{6^2 + 8^2} = 10\\text{ cm}$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 3: Volume $= 24 \\times 20 = 480\\text{ cm}^3$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 4: $L_p = 2(24) + (6+8+10) \\times 20 = 48 + 480 = 528\\text{ cm}^2 \\neq 480$ $\\Rightarrow$ <b>SALAH</b>'
+            },
+            {
+                id: 19,
+                type: 'tf_matrix',
+                topic: 'Limas Segi Empat',
+                text: 'Sebuah gazebo memiliki atap berbentuk limas segi empat beraturan. Panjang sisi alasnya $6\\text{ m}$ dan tinggi tegak limas $4\\text{ m}$. Tinggi sisi tegak atau apotema limas adalah $5\\text{ m}$. Tentukan Benar atau Salah pada setiap pernyataan berikut:',
+                statements: [
+                    'Luas alas limas adalah 36 m².',
+                    'Luas seluruh sisi tegak adalah 60 m².',
+                    'Luas permukaan limas, termasuk alasnya, adalah 96 m².',
+                    'Volume limas adalah 72 m³.'
+                ],
+                key: [true, true, true, false],
+                solution: '• Pernyataan 1: $L_{\\text{alas}} = 6 \\times 6 = 36\\text{ m}^2$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 2: $L_{\\text{sisi tegak}} = 4 \\times \\left(\\frac{1}{2} \\times 6 \\times 5\\right) = 60\\text{ m}^2$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 3: $L_p = 36 + 60 = 96\\text{ m}^2$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 4: Volume $= \\frac{1}{3} \\times 36 \\times 4 = 48\\text{ m}^3 \\neq 72$ $\\Rightarrow$ <b>SALAH</b>'
+            },
+            {
+                id: 20,
+                type: 'tf_matrix',
+                topic: 'Akuarium & Kapasitas Air',
+                text: 'Sebuah akuarium memiliki panjang $80\\text{ cm}$, lebar $40\\text{ cm}$, dan tinggi $50\\text{ cm}$. Akuarium mula-mula terisi air sebanyak 60% dari kapasitas maksimalnya. Tentukan Benar atau Salah pada setiap pernyataan berikut:',
+                statements: [
+                    'Volume maksimal akuarium adalah 160.000 cm³.',
+                    'Volume air mula-mula adalah 96 liter.',
+                    'Volume ruang kosong dalam akuarium adalah 64 liter.',
+                    'Jika ditambahkan 70 liter air, akuarium akan terisi penuh tanpa meluap.'
+                ],
+                key: [true, true, true, false],
+                solution: '• Pernyataan 1: $V_{\\text{maks}} = 80 \\times 40 \\times 50 = 160.000\\text{ cm}^3$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 2: Air mula-mula $= 60\\% \\times 160.000 = 96.000\\text{ cm}^3 = 96\\text{ Liter}$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 3: Ruang kosong $= 160 - 96 = 64\\text{ Liter}$ $\\Rightarrow$ <b>BENAR</b><br>' +
+                          '• Pernyataan 4: Menambah 70 Liter melebihi ruang kosong 64 Liter, sehingga air meluap $\\Rightarrow$ <b>SALAH</b>'
+            }
+        ];
+
+        let currentView = 'home';
+        let currentQuestionIndex = 0;
+        let quizMode = 'belajar'; // 'belajar' or 'ujian'
+        let userAnswers = Array(questionsData.length).fill(null);
+        let examTimer = null;
+        let timeRemaining = 45 * 60; // 45 minutes in seconds
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderMath();
+            initNavGrid();
+            loadQuestion(0);
+        };
+
+        function switchView(viewName) {
+            currentView = viewName;
+            
+            document.getElementById('view-home').classList.add('hidden');
+            document.getElementById('view-modul').classList.add('hidden');
+            document.getElementById('view-lesson3').classList.add('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+            if (viewName === 'home') {
+                document.getElementById('view-home').classList.remove('hidden');
+                document.getElementById('nav-home').classList.add('active');
+            } else if (viewName === 'modul') {
+                document.getElementById('view-modul').classList.remove('hidden');
+                document.getElementById('nav-modul').classList.add('active');
+                setTimeout(renderMath, 20);
+            } else if (viewName === 'lesson3') {
+                document.getElementById('view-lesson3').classList.remove('hidden');
+                document.getElementById('nav-lesson3').classList.add('active');
+                loadQuestion(currentQuestionIndex);
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToModuleSection(sectionId) {
+            const elem = document.getElementById(sectionId);
+            if (elem) {
+                elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function filterModuleTopic() {
+            const query = document.getElementById('module-search').value.toLowerCase();
+            const sections = ['m-transformasi', 'm-kesebangunan', 'm-pythagoras', 'm-bangunruang'];
+            sections.forEach(secId => {
+                const sec = document.getElementById(secId);
+                if (sec) {
+                    if (sec.innerText.toLowerCase().includes(query)) {
+                        sec.style.display = 'block';
+                    } else {
+                        sec.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function openModeModal() {
+            document.getElementById('mode-modal').classList.remove('hidden');
+        }
+
+        function closeModeModal() {
+            document.getElementById('mode-modal').classList.add('hidden');
+        }
+
+        function selectQuizMode(mode) {
+            quizMode = mode;
+            closeModeModal();
+
+            const badge = document.getElementById('quiz-mode-badge');
+            const timerBox = document.getElementById('timer-box');
+            const btnSubmit = document.getElementById('btn-submit-exam');
+
+            if (mode === 'belajar') {
+                badge.innerText = 'MODE BELAJAR';
+                badge.className = 'px-2.5 py-0.5 bg-emerald-100 text-almazaya-800 text-[11px] font-black uppercase rounded-full';
+                timerBox.classList.add('hidden');
+                btnSubmit.classList.add('hidden');
+                stopTimer();
+            } else {
+                badge.innerText = 'MODE UJIAN';
+                badge.className = 'px-2.5 py-0.5 bg-gold-500 text-slate-950 text-[11px] font-black uppercase rounded-full';
+                timerBox.classList.remove('hidden');
+                btnSubmit.classList.remove('hidden');
+                startTimer();
+            }
+
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function startTimer() {
+            stopTimer();
+            timeRemaining = 45 * 60;
+            updateTimerDisplay();
+            examTimer = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                if (timeRemaining <= 0) {
+                    stopTimer();
+                    alert('Waktu Ujian Telah Habis!');
+                    submitExam();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (examTimer) clearInterval(examTimer);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer-display').innerText = 
+                `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        function initNavGrid() {
+            const grid = document.getElementById('nav-grid');
+            grid.innerHTML = '';
+            for (let i = 0; i < questionsData.length; i++) {
+                const btn = document.createElement('button');
+                btn.id = `nav-item-${i}`;
+                btn.onclick = () => jumpToQuestion(i);
+                btn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition-all bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200';
+                btn.innerText = i + 1;
+                grid.appendChild(btn);
+            }
+        }
+
+        function updateNavGridState() {
+            for (let i = 0; i < questionsData.length; i++) {
+                const btn = document.getElementById(`nav-item-${i}`);
+                if (!btn) continue;
+
+                const isAnswered = isQuestionAnswered(i);
+                const isActive = (i === currentQuestionIndex);
+
+                if (isActive) {
+                    btn.className = 'w-9 h-9 rounded-xl font-black text-xs flex items-center justify-center transition-all bg-gold-400 text-slate-950 shadow-md ring-2 ring-gold-500 ring-offset-1';
+                } else if (isAnswered) {
+                    btn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition-all bg-almazaya-800 text-white shadow-xs';
+                } else {
+                    btn.className = 'w-9 h-9 rounded-xl font-bold text-xs flex items-center justify-center transition-all bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200';
+                }
+            }
+
+            const answeredCount = userAnswers.filter((ans, idx) => isQuestionAnswered(idx)).length;
+            document.getElementById('progress-counter').innerText = `${answeredCount} / 20 Terjawab`;
+        }
+
+        function isQuestionAnswered(index) {
+            const ans = userAnswers[index];
+            if (ans === null || ans === undefined) return false;
+            if (Array.isArray(ans)) return ans.length > 0;
+            if (typeof ans === 'object') return Object.keys(ans).length === 4;
+            return true;
+        }
+
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = questionsData[index];
+
+            document.getElementById('q-number-badge').innerText = q.id;
+            document.getElementById('q-topic-tag').innerText = q.topic;
+            document.getElementById('q-text').innerHTML = q.text;
+
+            // Diagram display
+            const diagContainer = document.getElementById('q-diagram-container');
+            if (q.diagram) {
+                diagContainer.innerHTML = q.diagram;
+                diagContainer.classList.remove('hidden');
+            } else {
+                diagContainer.classList.add('hidden');
+                diagContainer.innerHTML = '';
+            }
+
+            const typeMap = {
+                'single': 'Pilihan Ganda',
+                'multiple': 'Pilihan Ganda Kompleks',
+                'tf_matrix': 'Tabel Benar / Salah'
+            };
+            document.getElementById('q-type-badge').innerText = typeMap[q.type] || 'Soal';
+
+            // Render Options
+            const container = document.getElementById('q-options-container');
+            container.innerHTML = '';
+
+            if (q.type === 'single') {
+                q.options.forEach((opt, optIdx) => {
+                    const isSelected = userAnswers[index] === optIdx;
+                    const optDiv = document.createElement('div');
+                    optDiv.onclick = () => selectSingleAnswer(optIdx);
+                    optDiv.className = `p-3.5 sm:p-4 rounded-2xl border-2 transition-all cursor-pointer flex items-center space-x-3 ${
+                        isSelected 
+                        ? 'border-almazaya-700 bg-emerald-50/70 text-almazaya-900 font-bold shadow-sm' 
+                        : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700'
+                    }`;
+                    optDiv.innerHTML = `
+                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${isSelected ? 'border-almazaya-800 bg-almazaya-800 text-white' : 'border-slate-300'}">
+                            ${isSelected ? '<i class="fa-solid fa-check text-[10px]"></i>' : ''}
+                        </div>
+                        <span class="text-sm">${opt}</span>
+                    `;
+                    container.appendChild(optDiv);
+                });
+            } else if (q.type === 'multiple') {
+                const currentAns = userAnswers[index] || [];
+                q.options.forEach((opt, optIdx) => {
+                    const isSelected = currentAns.includes(optIdx);
+                    const optDiv = document.createElement('div');
+                    optDiv.onclick = () => toggleMultipleAnswer(optIdx);
+                    optDiv.className = `p-3.5 sm:p-4 rounded-2xl border-2 transition-all cursor-pointer flex items-center space-x-3 ${
+                        isSelected 
+                        ? 'border-almazaya-700 bg-emerald-50/70 text-almazaya-900 font-bold shadow-sm' 
+                        : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700'
+                    }`;
+                    optDiv.innerHTML = `
+                        <div class="w-5 h-5 rounded-lg border-2 flex items-center justify-center shrink-0 ${isSelected ? 'border-almazaya-800 bg-almazaya-800 text-white' : 'border-slate-300'}">
+                            ${isSelected ? '<i class="fa-solid fa-check text-[10px]"></i>' : ''}
+                        </div>
+                        <span class="text-sm">${opt}</span>
+                    `;
+                    container.appendChild(optDiv);
+                });
+            } else if (q.type === 'tf_matrix') {
+                const currentAns = userAnswers[index] || {};
+                const table = document.createElement('div');
+                table.className = 'border border-slate-200 rounded-2xl overflow-hidden shadow-xs bg-white text-xs sm:text-sm';
+                
+                let tableHtml = `
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200 text-xs">
+                                <th class="p-3 font-extrabold">Pernyataan</th>
+                                <th class="p-3 font-extrabold text-center w-20">Benar</th>
+                                <th class="p-3 font-extrabold text-center w-20">Salah</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                `;
+
+                q.statements.forEach((stmt, sIdx) => {
+                    const val = currentAns[sIdx];
+                    tableHtml += `
+                        <tr class="hover:bg-slate-50/80">
+                            <td class="p-3 text-slate-800 font-medium">${stmt}</td>
+                            <td class="p-3 text-center">
+                                <button onclick="setTfAnswer(${sIdx}, true)" class="w-7 h-7 rounded-lg border-2 inline-flex items-center justify-center transition-all ${
+                                    val === true ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 bg-white'
+                                }">
+                                    ${val === true ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                                </button>
+                            </td>
+                            <td class="p-3 text-center">
+                                <button onclick="setTfAnswer(${sIdx}, false)" class="w-7 h-7 rounded-lg border-2 inline-flex items-center justify-center transition-all ${
+                                    val === false ? 'bg-red-500 border-red-500 text-white' : 'border-slate-300 bg-white'
+                                }">
+                                    ${val === false ? '<i class="fa-solid fa-xmark text-xs"></i>' : ''}
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                tableHtml += `</tbody></table>`;
+                table.innerHTML = tableHtml;
+                container.appendChild(table);
+            }
+
+            // Solution Box setup
+            const solBox = document.getElementById('solution-box');
+            const solText = document.getElementById('sol-text');
+            const btnPembahasan = document.getElementById('btn-toggle-pembahasan');
+
+            solText.innerHTML = q.solution;
+
+            let keyStr = '';
+            if (q.type === 'single') keyStr = ['A','B','C','D'][q.key];
+            else if (q.type === 'multiple') keyStr = q.key.map(k => ['A','B','C','D'][k]).join(', ');
+            else if (q.type === 'tf_matrix') keyStr = q.key.map(k => k ? 'Benar' : 'Salah').join(', ');
+            document.getElementById('sol-key-badge').innerText = `Kunci: ${keyStr}`;
+
+            if (quizMode === 'belajar') {
+                btnPembahasan.classList.remove('hidden');
+                solBox.classList.add('hidden');
+                document.getElementById('toggle-pembahasan-text').innerText = 'Lihat Pembahasan';
+            } else {
+                btnPembahasan.classList.add('hidden');
+                solBox.classList.add('hidden');
+            }
+
+            document.getElementById('btn-prev-q').disabled = (index === 0);
+            
+            updateNavGridState();
+            setTimeout(renderMath, 10);
+        }
+
+        function selectSingleAnswer(optIdx) {
+            userAnswers[currentQuestionIndex] = optIdx;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function toggleMultipleAnswer(optIdx) {
+            let current = userAnswers[currentQuestionIndex] || [];
+            if (!Array.isArray(current)) current = [];
+            
+            if (current.includes(optIdx)) {
+                current = current.filter(i => i !== optIdx);
+            } else {
+                current.push(optIdx);
+                current.sort();
+            }
+            userAnswers[currentQuestionIndex] = current;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function setTfAnswer(statementIdx, boolVal) {
+            let current = userAnswers[currentQuestionIndex] || {};
+            if (typeof current !== 'object' || Array.isArray(current)) current = {};
+            
+            current[statementIdx] = boolVal;
+            userAnswers[currentQuestionIndex] = current;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function togglePembahasan() {
+            const solBox = document.getElementById('solution-box');
+            const txt = document.getElementById('toggle-pembahasan-text');
+            if (solBox.classList.contains('hidden')) {
+                solBox.classList.remove('hidden');
+                txt.innerText = 'Sembunyikan Pembahasan';
+                setTimeout(renderMath, 10);
+            } else {
+                solBox.classList.add('hidden');
+                txt.innerText = 'Lihat Pembahasan';
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questionsData.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        function jumpToQuestion(idx) {
+            loadQuestion(idx);
+        }
+
+        function confirmSubmitExam() {
+            const answeredCount = userAnswers.filter((a, idx) => isQuestionAnswered(idx)).length;
+            if (answeredCount < questionsData.length) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 20 soal. Yakin ingin menyelesaikan ujian?`)) {
+                    return;
+                }
+            } else {
+                if (!confirm('Apakah Anda yakin ingin mengumpulkan lembar jawaban ujian?')) {
+                    return;
+                }
+            }
+            submitExam();
+        }
+
+        function submitExam() {
+            stopTimer();
+
+            let totalPoints = 0;
+            let correctCount = 0;
+
+            questionsData.forEach((q, idx) => {
+                const ans = userAnswers[idx];
+                let isCorrect = false;
+
+                if (q.type === 'single') {
+                    if (ans === q.key) isCorrect = true;
+                } else if (q.type === 'multiple') {
+                    if (Array.isArray(ans) && ans.length === q.key.length && ans.every((val, i) => val === q.key[i])) {
+                        isCorrect = true;
+                    }
+                } else if (q.type === 'tf_matrix') {
+                    if (ans && typeof ans === 'object') {
+                        const matchAll = q.key.every((val, sIdx) => ans[sIdx] === val);
+                        if (matchAll) isCorrect = true;
+                    }
+                }
+
+                if (isCorrect) {
+                    correctCount++;
+                    totalPoints += 5; // 20 questions * 5 = 100 max points
+                }
+            });
+
+            const wrongCount = questionsData.length - correctCount;
+            const accuracy = Math.round((correctCount / questionsData.length) * 100);
+
+            document.getElementById('final-score-text').innerText = totalPoints;
+            document.getElementById('score-correct-count').innerText = correctCount;
+            document.getElementById('score-wrong-count').innerText = wrongCount;
+            document.getElementById('score-accuracy-text').innerText = `${accuracy}%`;
+
+            document.getElementById('result-modal').classList.remove('hidden');
+        }
+
+        function reviewExamAnswers() {
+            document.getElementById('result-modal').classList.add('hidden');
+            quizMode = 'belajar';
+            document.getElementById('quiz-mode-badge').innerText = 'REVIEW UJIAN';
+            document.getElementById('btn-toggle-pembahasan').classList.remove('hidden');
+            document.getElementById('btn-submit-exam').classList.add('hidden');
+            document.getElementById('timer-box').classList.add('hidden');
+            loadQuestion(0);
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-modal').classList.add('hidden');
+            userAnswers = Array(questionsData.length).fill(null);
+            if (quizMode === 'ujian') {
+                startTimer();
+            }
+            loadQuestion(0);
+        }
+    </script>
+</body>
+</html>
